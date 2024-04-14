@@ -1,0 +1,267 @@
+1
+00:00:00,000 --> 00:00:01,200
+Hello everyone in this video
+
+2
+00:00:01,300 --> 00:00:03,200
+We are going to solve the problem move Zeroes.
+
+3
+00:00:03,700 --> 00:00:06,600
+So the problem description says that given an array nums write a
+
+4
+00:00:06,700 --> 00:00:09,700
+function to move all zeros to the end of it while maintaining
+
+5
+00:00:09,800 --> 00:00:11,600
+the relative order of non-zero elements.
+
+6
+00:00:12,400 --> 00:00:13,300
+So we can see the example.
+
+7
+00:00:14,100 --> 00:00:14,700
+In this example,
+
+8
+00:00:14,800 --> 00:00:17,700
+the first non-zero element is 1 which appears at the first position in the
+
+9
+00:00:17,800 --> 00:00:20,500
+output then the next element which is non zero is 3 so
+
+10
+00:00:20,600 --> 00:00:24,000
+it appears that the second position and the third non-zero
+
+11
+00:00:24,100 --> 00:00:24,700
+element is 12.
+
+12
+00:00:24,800 --> 00:00:27,500
+So it is appearing at the third position and rest are zeros.
+
+13
+00:00:27,600 --> 00:00:30,500
+You must do this in place without making a copy of
+
+14
+00:00:30,600 --> 00:00:31,100
+the array.
+
+15
+00:00:32,000 --> 00:00:34,500
+So we are not going to use auxiliary space here.
+
+16
+00:00:35,100 --> 00:00:36,800
+And we have to minimize the total number of operations.
+
+17
+00:00:38,500 --> 00:00:41,500
+So I will try to do this problem with 2 pointer approach.
+
+18
+00:00:42,500 --> 00:00:45,300
+In this I will keep 2 pointers i and
+
+19
+00:00:45,500 --> 00:00:48,500
+j respectively so I will use j to
+
+20
+00:00:48,600 --> 00:00:51,600
+Traverse the array while I will keep i so
+
+21
+00:00:51,700 --> 00:00:53,700
+that I can override at the i th position.
+
+22
+00:00:55,200 --> 00:00:57,300
+So let me try to explain this with the example.
+
+23
+00:00:58,700 --> 00:00:59,100
+With j
+
+24
+00:00:59,200 --> 00:01:02,100
+I'm going to traverse the array and as soon as I come up to an
+
+25
+00:01:02,200 --> 00:01:02,500
+element
+
+26
+00:01:02,600 --> 00:01:03,100
+which is non zero,
+
+27
+00:01:03,200 --> 00:01:03,600
+I will
+
+28
+00:01:04,400 --> 00:01:07,000
+Override the ith position with that particular element.
+
+29
+00:01:08,000 --> 00:01:10,800
+So let's say I'm moving from the start and the first non-zero
+
+30
+00:01:11,000 --> 00:01:12,900
+element is 3,  so I reach here.
+
+31
+00:01:14,200 --> 00:01:17,400
+Now I will overwrite i with
+
+32
+00:01:17,600 --> 00:01:20,100
+3 and then increment i 
+
+33
+00:01:22,000 --> 00:01:23,600
+Then the next element which is non-zero is 6.
+
+34
+00:01:23,700 --> 00:01:27,000
+I will uh j will reach here and then I will override this.
+
+35
+00:01:28,300 --> 00:01:30,200
+and increment i 
+
+36
+00:01:30,600 --> 00:01:31,800
+then I will come up to this.
+
+37
+00:01:32,000 --> 00:01:33,000
+This is zero again.
+
+38
+00:01:34,000 --> 00:01:35,500
+I will move to the next element.
+
+39
+00:01:36,500 --> 00:01:37,800
+So this is again a non-zero element.
+
+40
+00:01:38,000 --> 00:01:41,100
+So I will override i with this and
+
+41
+00:01:41,300 --> 00:01:43,200
+then increment i 
+
+42
+00:01:43,900 --> 00:01:46,400
+Then I will come to 5
+
+43
+00:01:47,900 --> 00:01:52,400
+Again I will do this operation and increment i
+
+44
+00:01:53,100 --> 00:01:54,500
+ then this again zero,
+
+45
+00:01:54,700 --> 00:01:55,800
+so nothing will happen.
+
+46
+00:01:56,200 --> 00:01:57,800
+And this is a non zero element.
+
+47
+00:01:57,900 --> 00:01:59,300
+So I will overwrite it.
+
+48
+00:02:02,500 --> 00:02:03,400
+Now I will reach here.
+
+49
+00:02:04,700 --> 00:02:07,200
+And j exits the loop.
+
+50
+00:02:08,500 --> 00:02:11,300
+Now the rest of the elements from i till the
+
+51
+00:02:11,500 --> 00:02:14,300
+end of the array, these are supposed to be zero so I
+
+52
+00:02:14,500 --> 00:02:15,500
+will make them zero.
+
+53
+00:02:15,800 --> 00:02:18,900
+So we are able to do this problem in big O for N time and
+
+54
+00:02:19,000 --> 00:02:21,100
+using constant extra space.
+
+55
+00:02:23,300 --> 00:02:25,000
+Now let us look at the code.
+
+56
+00:02:28,400 --> 00:02:31,800
+So I'm keeping i and j initially both are zero till
+
+57
+00:02:32,000 --> 00:02:33,900
+the time j is is smaller than nums .size().
+
+58
+00:02:34,500 --> 00:02:36,300
+if j comes to a non-zero element,
+
+59
+00:02:36,500 --> 00:02:39,500
+then simply overwrite i and increment i 
+
+60
+00:02:40,500 --> 00:02:43,100
+and each time we have to increment j, this part of the code
+
+61
+00:02:43,100 --> 00:02:46,000
+this is actually this is actually this
+
+62
+00:02:46,000 --> 00:02:48,900
+1 we are making all the elements zero.
+
+63
+00:02:49,800 --> 00:02:52,800
+Starting from i so while i
+
+64
+00:02:52,900 --> 00:02:54,400
+is smaller than nums.size()
+
+65
+00:02:54,500 --> 00:02:57,000
+I will make all the elements till the end zero.
+
+66
+00:02:58,900 --> 00:02:59,700
+So this is it for the problem.
+
+67
+00:02:59,800 --> 00:03:00,500
+Thank you.
